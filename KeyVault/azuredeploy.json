@@ -9,6 +9,9 @@
         "description": "KeyVault name"
       }
     },
+    "templateBaseURI": {
+      "type": "string"
+    },
     "logsRetentionInDays": {
       "type": "int",
       "defaultValue": 0,
@@ -81,7 +84,7 @@
   "variables": {
     "keyVaultAPIVersion": "2018-02-14",
     "template": {
-      "base": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-with-logging-create/",
+      "base": "[parameters('templateBaseURI')]",
       "protectWithLocks": "[concat('nestedtemplates/protectwithlocks', parameters('protectWithLocks'), '.json')]"
     },
     "keyVaultName": "[concat( parameters('keyVaultNamePrefix'), subString( uniqueString(subscription().id, resourceGroup().id), 0, 8 ) )]",
