@@ -86,7 +86,7 @@
     },
     "uniqueString": "[uniqueString(subscription().id, resourceGroup().id)]",
     "keyVaultName": "[toLower( concat ( parameters('keyVaultNamePrefix'), variables('uniqueString') ) )]",
-    "diagnosticStorageAccountName": "[toLower( substring( replace( concat( variables('keyVaultName') ), '-', ''), 0, 23) )]"
+    "diagnosticStorageAccountName": "[concat( variables('keyVaultName'), uniqueString(subscription().id, resourceGroup().id) )]"
   },
   "resources": [
     {
@@ -137,12 +137,12 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('diagnosticStorageAccountName')]",
-      "apiVersion": "2016-12-01",
+      "apiVersion": "2018-07-01",
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_LRS"
       },
-      "kind": "Storage",
+      "kind": "StorageV2",
       "tags": {
         "displayName": "concat('Key Vault ', variables('keyVaultName'), ' diagnostics storage account')"
       },
