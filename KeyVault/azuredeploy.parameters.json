@@ -2,36 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "keyVaultName": {
-            "value": "GEN-UNIQUE"
-        },
-        "accessPolicies": {
-            "value": [
-                {
-                    "tenantId": "example-guid",
-                    "objectId": "example-guid",
-                    "permissions": {
-                        "keys": [
-                            "all"
-                        ],
-                        "secrets": [
-                            "all"
-                        ]
-                    }
-                },
-                {
-                    "tenantId": "example-guid",
-                    "objectId": "example-guid",
-                    "permissions": {
-                        "keys": [
-                            "all"
-                        ],
-                        "secrets": [
-                            "all"
-                        ]
-                    }
-                }
-            ]
+        "keyVaultNamePrefix": {
+            "value": "kv-Demo-"
         },
         "protectWithLocks": {
             "value": "disabled"

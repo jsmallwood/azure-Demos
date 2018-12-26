@@ -9,13 +9,6 @@
         "description": "KeyVault name"
       }
     },
-    "accessPolicies": {
-      "type": "array",
-      "defaultValue": "{}",
-      "metadata": {
-        "description": "Access policies object {\"tenantId\":\"\",\"objectId\":\"\",\"permissions\":{\"keys\":[\"\"],\"secrets\":[\"\"]}}"
-      }
-    },
     "logsRetentionInDays": {
       "type": "int",
       "defaultValue": 0,
@@ -27,7 +20,7 @@
     },
     "enableVaultForDeployment": {
       "type": "bool",
-      "defaultValue": false,
+      "defaultValue": true,
       "allowedValues": [
         true,
         false
@@ -38,7 +31,7 @@
     },
     "enableVaultForTemplateDeployment": {
       "type": "bool",
-      "defaultValue": false,
+      "defaultValue": true,
       "allowedValues": [
         true,
         false
@@ -49,7 +42,7 @@
     },
     "enableVaultForDiskEncryption": {
       "type": "bool",
-      "defaultValue": false,
+      "defaultValue": true,
       "allowedValues": [
         true,
         false
@@ -110,7 +103,6 @@
           "name": "[parameters('vaultSku')]",
           "family": "A"
         },
-        "accessPolicies": "[parameters('AccessPolicies')]",
         "enabledForDeployment": "[parameters('enableVaultForDeployment')]",
         "enabledForTemplateDeployment": "[parameters('enableVaultForTemplateDeployment')]",
         "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
