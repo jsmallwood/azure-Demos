@@ -85,7 +85,7 @@
       "protectWithLocks": "[concat('nestedtemplates/protectwithlocks', parameters('protectWithLocks'), '.json')]"
     },
     "uniqueString": "[uniqueString(subscription().id, resourceGroup().id)]",
-    "keyVaultName": "[toLower( concat ( parameters('keyVaultNamePrefix'), variables('uniqueString') ) )]",
+    "keyVaultName": "[concat( parameters('keyVaultNamePrefix'), variables('uniqueString') )]",
     "diagnosticStorageAccountName": "[concat( variables('keyVaultName'), uniqueString(subscription().id, resourceGroup().id) )]"
   },
   "resources": [
