@@ -84,9 +84,8 @@
       "base": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-with-logging-create/",
       "protectWithLocks": "[concat('nestedtemplates/protectwithlocks', parameters('protectWithLocks'), '.json')]"
     },
-    "uniqueString": "[uniqueString(subscription().id, resourceGroup().id)]",
-    "keyVaultName": "[concat( parameters('keyVaultNamePrefix'), variables('uniqueString') )]",
-    "diagnosticStorageAccountName": "[concat( variables('keyVaultName'), uniqueString(subscription().id, resourceGroup().id) )]"
+    "keyVaultName": "[concat( parameters('keyVaultNamePrefix'), subString( uniqueString(subscription().id, resourceGroup().id), 0, 8 ) )]",
+    "diagnosticStorageAccountName": "[concat( variables('keyVaultName'), subString( uniqueString(subscription().id, resourceGroup().id), 0, sub( length(parameters('keyVaultNamePrefix') ), 23 ) ) ) ]"
   },
   "resources": [
     {
