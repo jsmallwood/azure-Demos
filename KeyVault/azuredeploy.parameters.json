@@ -5,6 +5,9 @@
         "keyVaultNamePrefix": {
             "value": "kv-Demo-"
         },
+        "templateBaseURI": {
+            "value": "https://raw.githubusercontent.com/jsmallwood/azure-Demos/master/KeyVault"
+        },
         "protectWithLocks": {
             "value": "disabled"
         }
