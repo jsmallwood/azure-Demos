@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/4baa1919-d0f4-4d0b-b2f2-30b12f4e21f3/resourceGroups/rg-KeyVault-CentralUS/providers/Microsoft.KeyVault/vaults/kv-demo-765egtr345g6387"
+        },
+        "secretName": "domainAdminUsername"
+      }
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/4baa1919-d0f4-4d0b-b2f2-30b12f4e21f3/resourceGroups/rg-KeyVault-CentralUS/providers/Microsoft.KeyVault/vaults/kv-demo-765egtr345g6387"
+        },
+        "secretName": "domainAdminPassword"
+      }
+    },
+    "VMSize": {
+      "value": "Standard_DS1_v2"
+    },
+    "imageSKU": {
+      "value": "2019-Datacenter"
+    },
+    "diskType": {
+      "value": "StandardSSD_LRS"
+    },
+    "DomainName": {
+      "value": "systemcenterclouds.com"
+    },
+    "createChildDomain": {
+      "value": true
+    },
+    "ChildDomainName": {
+      "value": "azuretest.online"
+    },
+    "virtualNetworkName": {
+      "value": "vnet-pr-eus2"
+    },
+    "virtualNetworkAddressRange": {
+      "value": "10.100.0.0/16"
+    },
+    "adSubnetName": {
+      "value": "subnet-PR-AD-EUS2"
+    },
+    "adSubnet": {
+      "value": "10.100.1.0/24"
+    },
+    "RootDC1Name": {
+      "value": "rootdc1"
+    },
+    "RootDC1IPAddress": {
+      "value": "10.100.1.4"
+    },
+    "RootDC2Name": {
+      "value": "rootdc2"
+    },
+    "RootDC2IPAddress": {
+      "value": "10.100.1.5"
+    },
+    "ChildDC3Name": {
+      "value": "childdc1"
+    },
+    "ChildDC3IPAddress": {
+      "value": "10.100.1.6"
+    },
+    "ChildDC4Name": {
+      "value": "childdc2"
+    },
+    "ChildDC4IPAddress": {
+      "value": "10.100.1.7"
+    },
+    "_artifactsLocation": {
+      "value": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/301-create-ad-forest-with-subdomain"
+    }
+  }
+}

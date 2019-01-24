@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AzureActiveDirectory",
+    "\\AzureActiveDirectory\\ADForest",
+    "\\AzureActiveDirectory\\ADForest\\DSC",
+    "\\AzureActiveDirectory\\ADForest\\nested"
+  ],
+  "PreviewInSolutionExplorer": false
+}

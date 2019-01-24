@@ -54,8 +54,8 @@
     }
   },
   "variables": {
-    "adPDCVMName": "adPDC",
-    "adBDCVMName": "adBDC",
+    "adPDCVMName": "forestDC1",
+    "adBDCVMName": "forestDC2",
     "adVMSize": "Standard_DS2_v2",
     "imagePublisher": "MicrosoftWindowsServer",
     "imageOffer": "WindowsServer",

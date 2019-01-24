@@ -8,6 +8,9 @@
         "templateBaseURI": {
             "value": "https://raw.githubusercontent.com/jsmallwood/azure-Demos/master/KeyVault"
         },
+        "logsRetentionInDays": {
+            "value": 14
+        },
         "protectWithLocks": {
             "value": "disabled"
         }

@@ -10,7 +10,10 @@
       }
     },
     "templateBaseURI": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "Enter the base URI for the template such as: https://raw.githubusercontent.com/jsmallwood/azure-Demos/master/KeyVault"
+      }
     },
     "logsRetentionInDays": {
       "type": "int",
@@ -79,13 +82,27 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },
+    "_artifactsLocation": {
+      "type": "string",
+      "defaultValue": "https://raw.githubusercontent.com/jsmallwood/azure-Demos/master/KeyVault",
+      "metadata": {
+        "description": "Publicly accessible location of all deployment artifacts."
+      }
+    },
+    "_artifactsLocationSasToken": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Reserved for deploying using Visual Studio. Please keep it as an empty string"
+      }
     }
   },
   "variables": {
     "keyVaultAPIVersion": "2018-02-14",
     "template": {
       "base": "[parameters('templateBaseURI')]",
-      "protectWithLocks": "[concat('nestedtemplates/protectwithlocks', parameters('protectWithLocks'), '.json')]"
+      "protectWithLocks": "[concat(parameters('templateBaseURI'), '/nestedtemplates/protectwithlocks', parameters('protectWithLocks'), '.json')]"
     },
     "keyVaultName": "[concat( parameters('keyVaultNamePrefix'), subString( uniqueString(subscription().id, resourceGroup().id), 0, 8 ) )]",
     "diagnosticStorageAccountName": "[concat( variables('keyVaultName'), subString( uniqueString(subscription().id, resourceGroup().id), 0, sub( length(parameters('keyVaultNamePrefix') ), 23 ) ) ) ]"
