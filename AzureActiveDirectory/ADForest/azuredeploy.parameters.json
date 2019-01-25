@@ -39,7 +39,7 @@
     "ChildDomainName": {
       "value": "azuretest.online"
     },
-    "ChildDomainNetBIOSName": {
+    "ChildDomainNetBIOS": {
       "value": "azuretest"
     },
     "virtualNetworkName": {

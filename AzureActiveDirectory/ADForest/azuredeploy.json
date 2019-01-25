@@ -37,7 +37,7 @@
       "minlength": 2,
       "maxlength": 60
     },
-    "ChildDomainNetBIOSName": {
+    "ChildDomainNetBIOS": {
       "type": "string",
       "defaultValue": "mwdemochild"
     },
@@ -479,8 +479,8 @@
           "ChildDomainName": {
             "value": "[parameters('ChildDomainName')]"
           },
-          "ChildDomainNetBIOSName": {
-            "value": "[parameters('ChildDomainNameNetBIOSName')]"
+          "ChildDomainNetBIOS": {
+            "value": "[parameters('ChildDomainNetBIOS')]"
           },
           "DNSForwarder": {
             "value": "[parameters('RootDC1IPAddress')]"
