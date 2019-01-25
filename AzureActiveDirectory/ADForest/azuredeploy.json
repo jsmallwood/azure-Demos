@@ -224,8 +224,6 @@
   },
   "variables": {
     "adNSGName": "[concat(parameters('adSubnetName'),'NSG')]",
-    "adAvailabilitySetNameRoot": "AvailSetRoot",
-    "adAvailabilitySetNameChild": "AvailSetChild",
     "firstVMTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/CreateAndPrepnewVM.json',parameters('_artifactsLocationSasToken'))]",
     "nextVMTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/CreateAndPrepnewVM.json',parameters('_artifactsLocationSasToken'))]",
     "vnetTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/vnet.json',parameters('_artifactsLocationSasToken'))]",
@@ -312,9 +310,6 @@
           "subnetName": {
             "value": "[parameters('adSubnetName')]"
           },
-          "adAvailabilitySetName": {
-            "value": "[variables('adAvailabilitySetNameRoot')]"
-          },
           "vmName": {
             "value": "[parameters('RootDC1Name')]"
           },
@@ -392,8 +387,7 @@
       "condition": "[parameters('createChildDomain')]",
       "apiVersion": "2018-08-01",
       "dependsOn": [
-        "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
-        "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetNameChild'))]"
+        "[resourceId('Microsoft.Resources/deployments','CreateVNET')]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -407,9 +401,6 @@
           },
           "subnetName": {
             "value": "[parameters('adSubnetName')]"
-          },
-          "adAvailabilitySetName": {
-            "value": "[variables('adAvailabilitySetNameChild')]"
           },
           "vmName": {
             "value": "[parameters('ChildDC3Name')]"
@@ -493,8 +484,7 @@
       "apiVersion": "2018-08-01",
       "condition": "[parameters('createSecondDc')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
-        "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetNameRoot'))]"
+        "[resourceId('Microsoft.Resources/deployments','CreateVNET')]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -508,9 +498,6 @@
           },
           "subnetName": {
             "value": "[parameters('adSubnetName')]"
-          },
-          "adAvailabilitySetName": {
-            "value": "[variables('adAvailabilitySetNameRoot')]"
           },
           "vmName": {
             "value": "[parameters('RootDC2Name')]"
@@ -591,8 +578,7 @@
       "apiVersion": "2018-08-01",
       "condition": "[and(parameters('createSecondDc'), parameters('createChildDomain'))]",
       "dependsOn": [
-        "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
-        "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetNameChild'))]"
+        "[resourceId('Microsoft.Resources/deployments','CreateVNET')]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -606,9 +592,6 @@
           },
           "subnetName": {
             "value": "[parameters('adSubnetName')]"
-          },
-          "adAvailabilitySetName": {
-            "value": "[variables('adAvailabilitySetNameChild')]"
           },
           "vmName": {
             "value": "[parameters('ChildDC4Name')]"

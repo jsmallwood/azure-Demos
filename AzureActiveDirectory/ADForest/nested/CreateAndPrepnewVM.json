@@ -15,12 +15,6 @@
         "description": "The name of the existing subnet in the VNET"
       }
     },
-    "adAvailabilitySetName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of existing availability set for the VM"
-      }
-    },
     "vmName": {
       "type": "string",
       "metadata": {
@@ -85,7 +79,7 @@
     }
   },
   "variables": {
-    "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'),parameters('SubnetName'))]", 
+    "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'),parameters('SubnetName'))]",
     "vmPublicIPName": "[concat(parameters('vmName'),'PublicIP')]",
     "vmNicName": "[concat(parameters('vmName'),'Nic')]",
     "vmDataDisk": "[concat(parameters('vmName'),'-managed-DataDisk1')]",
