@@ -1,7 +1,6 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-
   "parameters": {
     "virtualNetworkName": {
       "type": "string",
@@ -76,6 +75,10 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },
+    "zone":{
+      "type": "int",
+      "defaultValue": 1
     }
   },
   "variables": {
@@ -134,7 +137,7 @@
       "apiVersion": "2018-06-01",
       "location": "[parameters('location')]",
       "zones": [
-        "1"
+        "[parameters('zone')]"
       ],
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkInterfaces',variables('vmNicName'))]"
