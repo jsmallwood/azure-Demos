@@ -17,7 +17,7 @@
     "ChildDomainName": {
       "type": "string"
     },
-    "ChildDomainNetBIOs": {
+    "ChildDomainNetBIOSName": {
       "type": "string"
     },
     "DnsForwarder": {
@@ -56,7 +56,7 @@
           "Properties": {
             "ParentDomainName": "[parameters('parentDomainName')]",
             "ChildDomainName": "[parameters('childDomainName')]",
-            "DomainNetBIOs": "[parameters('childDomainNetBIOSName')]",
+            "ChildDomainNetBIOS": "[parameters('ChildDomainNetBIOSName')]",
             "DnsForwarder": "[parameters('DnsForwarder')]",
             "AdminCreds": {
               "UserName": "[parameters('adminUserName')]",

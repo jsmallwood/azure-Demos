@@ -37,7 +37,7 @@
       "minlength": 2,
       "maxlength": 60
     },
-    "childDomainNetBIOSName": {
+    "ChildDomainNetBIOSName": {
       "type": "string",
       "defaultValue": "mwdemochild"
     },
@@ -379,8 +379,8 @@
           "domainName": {
             "value": "[parameters('domainName')]"
           },
-          "domainNetBIOSName": {
-            "value": "[parameters('domainNameNetBIOSName')]"
+          "DomainNetBIOSName": {
+            "value": "[parameters('DomainNetBIOSName')]"
           },
           "DNSForwarder": {
             "value": "[parameters('externalDNSForwarder')]"
