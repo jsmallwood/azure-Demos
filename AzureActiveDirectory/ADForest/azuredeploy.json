@@ -223,9 +223,11 @@
     }
   },
   "variables": {
-    "adNSGName": "[concat(parameters('adSubnetName'),'NSG')]",
+    "adConnectVMName": "vmADConnect1",
+    "adNSGName": "[concat(parameters('adSubnetName'),'-NSG')]",
     "firstVMTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/CreateAndPrepnewVM.json',parameters('_artifactsLocationSasToken'))]",
     "nextVMTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/CreateAndPrepnewVM.json',parameters('_artifactsLocationSasToken'))]",
+    "adConnectVMTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/CreateAndPrepnewVM.ADConnect.json',parameters('_artifactsLocationSasToken'))]",
     "vnetTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/vnet.json',parameters('_artifactsLocationSasToken'))]",
     "vnetwithDNSTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/vnet-with-dns-server.json',parameters('_artifactsLocationSasToken'))]",
     "configureADNextDCTemplateUri": "[concat(parameters('_artifactsLocation'),'/nested/configureADNextDC.json',parameters('_artifactsLocationSasToken'))]",
@@ -700,6 +702,51 @@
               "[parameters('RootDC1IPAddress')]",
               "[parameters('RootDC2IPAddress')]"
             ]
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          }
+        }
+      }
+    },
+    {
+      "name": "CreateADConnectVM",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-08-01",
+      "condition": "[and(parameters('createSecondDc'), parameters('createChildDomain'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/deployments','CreateVNET')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('adConnectVMTemplateUri')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "virtualNetworkName": {
+            "value": "[parameters('virtualNetworkName')]"
+          },
+          "subnetName": {
+            "value": "[parameters('adSubnetName')]"
+          },
+          "vmName": {
+            "value": "[variables('adConnectVMName')]"
+          },
+          "adminUsername": {
+            "value": "[parameters('adminUsername')]"
+          },
+          "adminPassword": {
+            "value": "[parameters('adminPassword')]"
+          },
+          "vmSize": {
+            "value": "[parameters('VMSize')]"
+          },
+          "diskType": {
+            "value": "[parameters('diskType')]"
+          },
+          "imageSKU": {
+            "value": "[parameters('imageSKU')]"
           },
           "location": {
             "value": "[parameters('location')]"
