@@ -104,7 +104,7 @@
       },
       "defaultValue": "adVNET",
       "minlength": 2,
-      "maxlength": 16
+      "maxlength": 24
     },
     "virtualNetworkAddressRange": {
       "type": "string",
@@ -127,7 +127,7 @@
       },
       "defaultValue": "adSubnet",
       "minlength": 2,
-      "maxlength": 16
+      "maxlength": 24
     },
     "adSubnet": {
       "type": "string",
