@@ -127,7 +127,7 @@
       },
       "defaultValue": "adSubnet",
       "minlength": 2,
-      "maxlength": 24
+      "maxlength": 64
     },
     "adSubnet": {
       "type": "string",
