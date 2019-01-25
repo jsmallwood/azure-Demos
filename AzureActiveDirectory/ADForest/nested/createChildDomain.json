@@ -55,7 +55,7 @@
           "ConfigurationFunction": "[variables('adChildDomainDC1ConfigurationFunction')]",
           "Properties": {
             "ParentDomainName": "[parameters('parentDomainName')]",
-            "ChildDomainName": "[parameters('childDomainName')]",
+            "ChildDomainName": "[parameters('ChildDomainName')]",
             "ChildDomainNetBIOS": "[parameters('ChildDomainNetBIOSName')]",
             "DnsForwarder": "[parameters('DnsForwarder')]",
             "AdminCreds": {

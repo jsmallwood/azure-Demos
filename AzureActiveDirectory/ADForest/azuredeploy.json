@@ -476,11 +476,11 @@
           "parentDomainName": {
             "value": "[parameters('domainName')]"
           },
-          "childDomainName": {
+          "ChildDomainName": {
             "value": "[parameters('ChildDomainName')]"
           },
-          "childDomainNetBIOSName": {
-            "value": "[parameters('childDomainNameNetBIOSName')]"
+          "ChildDomainNetBIOSName": {
+            "value": "[parameters('ChildDomainNameNetBIOSName')]"
           },
           "DNSForwarder": {
             "value": "[parameters('RootDC1IPAddress')]"
@@ -668,7 +668,7 @@
             "value": "[parameters('adminPassword')]"
           },
           "domainName": {
-            "value": "[concat(parameters('childDomainName'), '.', parameters('domainName'))]"
+            "value": "[concat(parameters('ChildDomainName'), '.', parameters('domainName'))]"
           },
           "DNSServer": {
             "value": "[parameters('ChildDC3IPAddress')]"
