@@ -77,8 +77,8 @@
       }
     },
     "zone":{
-      "type": "int",
-      "defaultValue": 1
+      "type": "String",
+      "defaultValue": "1"
     }
   },
   "variables": {
