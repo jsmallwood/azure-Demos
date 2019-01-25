@@ -113,9 +113,6 @@
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2018-08-01",
       "location": "[parameters('location')]",
-      "zones": [
-        "[parameters('zone')]"
-      ],
       "dependsOn": [
         "[concat('Microsoft.Network/publicIPAddresses/', variables('vmPublicIPName'))]"
       ],
