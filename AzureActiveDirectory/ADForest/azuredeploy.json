@@ -24,6 +24,10 @@
       "defaultValue": "motifworks-demo.com",
       "minlength": 4
     },
+    "DomainNetBIOSName": {
+      "type": "string",
+      "defaultValue": "mwdemo"
+    },
     "ChildDomainName": {
       "type": "string",
       "metadata": {
@@ -32,6 +36,10 @@
       "defaultValue": "child",
       "minlength": 2,
       "maxlength": 60
+    },
+    "childDomainNetBIOSName": {
+      "type": "string",
+      "defaultValue": "mwdemochild"
     },
     "adminUsername": {
       "type": "string",
@@ -371,6 +379,9 @@
           "domainName": {
             "value": "[parameters('domainName')]"
           },
+          "domainNetBIOSName": {
+            "value": "[parameters('domainNameNetBIOSName')]"
+          },
           "DNSForwarder": {
             "value": "[parameters('externalDNSForwarder')]"
           },
@@ -467,6 +478,9 @@
           },
           "childDomainName": {
             "value": "[parameters('ChildDomainName')]"
+          },
+          "childDomainNetBIOSName": {
+            "value": "[parameters('childDomainNameNetBIOSName')]"
           },
           "DNSForwarder": {
             "value": "[parameters('RootDC1IPAddress')]"

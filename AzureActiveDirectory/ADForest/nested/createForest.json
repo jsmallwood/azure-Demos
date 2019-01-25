@@ -14,6 +14,9 @@
     "domainName": {
       "type": "string"
     },
+    "domainNetBIOSName": {
+      "type": "string"
+    },
     "DnsForwarder": {
       "type": "string"
     },
@@ -49,6 +52,7 @@
           "ConfigurationFunction": "[variables('adRootDC1ConfigurationFunction')]",
           "Properties": {
             "DomainName": "[parameters('domainName')]",
+            "DomainNetBIOs": "[parameters('domainNetBIOSName')]",
             "DnsForwarder": "[parameters('DnsForwarder')]",
             "AdminCreds": {
               "UserName": "[parameters('adminUserName')]",
